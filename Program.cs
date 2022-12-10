@@ -30,24 +30,21 @@
 // 7 -> да
 // 1 -> нет
 
+// bool met(int day){
 
+//     if (day == 6 || day == 7){
+//         return true;
+//     }   
+//     else 
+//     {
+//         return false;
+//     }
+// }
 
-
-bool met(int day){
-
-    if (day == 6 || day == 7){
-        return true;
-    }   
-    else 
-    {
-        return false;
-    }
-}
-
-Console.Write("Введи цифру, для дня недели от 1 до 7: ");
-int day = Convert.ToInt32(Console.ReadLine());
-bool result = met(day);
-Console.WriteLine(result);
+// Console.Write("Введи цифру, для дня недели от 1 до 7: ");
+// int day = Convert.ToInt32(Console.ReadLine());
+// bool result = met(day);
+// Console.WriteLine(result);
 
 
 // Задача 13: Напишите программу, которая 
@@ -64,5 +61,20 @@ Console.WriteLine(result);
 // int n = Convert.ToInt32(Console.ReadLine());
 // int met(int num){
 
+// }
+// int met(int num){
+
+//     while (num % 100 == 0){
+//         if (num % 10)
+
+//     }
+
 
 // }
+// я не понимаю как это реализовать, но как я понял нам 
+// нужно проверять (цикл) делится ли введеное число на 100, 
+// затем если оно делится без остатка, делить его опять на
+//  100, и так пока оно не перестанет делиться на 100, затем нам
+//   нужно получившееся число разделить на 10 и выделить
+//    остаток, это и будет третье число. При этом задав условие,
+//     что если число делится на сто нацело, то третьего числа нет.
