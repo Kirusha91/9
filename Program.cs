@@ -1,80 +1,78 @@
-﻿// Задача 10: Напишите программу, которая принимает на вход трёхзначное
-//  число и на выходе показывает вторую цифру этого числа.
+﻿// Задача 19
 
-// 456 -> 5
-// 782 -> 8
-// 918 -> 1
+// Напишите программу, которая принимает на
+//  вход пятизначное число и проверяет,
+//   является ли оно палиндромом.
 
-// Console.Write("Введите трехзначное число: ");
-// int n = Convert.ToInt32(Console.ReadLine());
-// int CutNumber(int num){
-//     
-//     int ed = num / 10;
-//     int result = ed % 10;
-//     return result;
+// 14212 -> нет
 
+// 12821 -> да
+
+// // 23432 -> да
+
+Console.Write("Введите число: ");
+int n = Convert.ToInt32(Console.ReadLine());
+int temp = n;
+int revers = 0;
+
+int met(int num){
+    while (n > 0){
+        int d = n % 10;
+        revers = revers * 10 + d; // Переворачиваем число задом на перед
+        n = n / 10;
+    }
+    return revers;
+
+
+
+
+//         // if(temp == revers){// проверяем новое число со старым
+//         //     Console.WriteLine($"Ваше число: {n} это палиндром.");
+//         // }
+//         // else Console.WriteLine($"Ваше число: {n} это не палиндром.");
+    
+
+
+}
+if(temp == revers){// проверяем новое число со старым
+            Console.WriteLine($"Ваше число: {n} это палиндром.");
+        }
+        else Console.WriteLine($"Ваше число: {n} это не палиндром.");
+int result = met(num);
+
+
+
+// Задача 21
+
+// Напишите программу, которая принимает на вход 
+// координаты двух точек и находит расстояние между 
+// ними в 3D пространстве.
+
+// A (3,6,8); B (2,1,-7), -> 15.84
+
+// A (7,-5, 0); B (1,-1,9) -> 11.53
+
+// double fd( double xA, double yA, double zA, double xB, double yB, double zB){
+
+    
+//     double dis = Math.Sqrt(Math.Pow(xA - xB ,2) + Math.Pow(xB - yB ,2) + Math.Pow(zA - zB ,2));
+
+//     return dis;
 // }
 
-// int oldNum = n;
+// Console.WriteLine("Введите Координаты точки zA: ");
+// double xA = Convert.ToDouble(Console.ReadLine());
+// Console.WriteLine("Введите Координаты точки yA: ");
+// double yA = Convert.ToDouble(Console.ReadLine());
+// Console.WriteLine("Введите Координаты точки zA: ");
+// double zA = Convert.ToDouble(Console.ReadLine());
+// Console.WriteLine("Введите Координаты точки xB: ");
+// double xB = Convert.ToDouble(Console.ReadLine());
+// Console.WriteLine("Введите Координаты точки yB: ");
+// double yB = Convert.ToDouble(Console.ReadLine());
+// Console.WriteLine("Введите Координаты точки zB: ");
+// double zB = Convert.ToDouble(Console.ReadLine());
+ 
 
-// int newNum = CutNumber(n);
-
-// Console.WriteLine($"New version of a number {oldNum} in {newNum}");
-
-
-// Задача 15: Напишите программу, 
-// которая принимает на вход цифру, обозначающую 
-// день недели, и проверяет, является ли этот день выходным.
-
-// 6 -> да
-// 7 -> да
-// 1 -> нет
-
-// bool met(int day){
-
-//     if (day == 6 || day == 7){
-//         return true;
-//     }   
-//     else 
-//     {
-//         return false;
-//     }
-// }
-
-// Console.Write("Введи цифру, для дня недели от 1 до 7: ");
-// int day = Convert.ToInt32(Console.ReadLine());
-// bool result = met(day);
-// Console.WriteLine(result);
-
-
-// Задача 13: Напишите программу, которая 
-// выводит третью цифру заданного числа или сообщает,
-//  что третьей цифры нет.
-
-// 645 -> 5
-
-// 78 -> третьей цифры нет
-
-// 32679 -> 6
-
-// Console.Write("Введите число: ");
-// int n = Convert.ToInt32(Console.ReadLine());
-// int met(int num){
-
-// }
-// int met(int num){
-
-//     while (num % 100 == 0){
-//         if (num % 10)
-
-//     }
-
-
-// }
-// я не понимаю как это реализовать, но как я понял нам 
-// нужно проверять (цикл) делится ли введеное число на 100, 
-// затем если оно делится без остатка, делить его опять на
-//  100, и так пока оно не перестанет делиться на 100, затем нам
-//   нужно получившееся число разделить на 10 и выделить
-//    остаток, это и будет третье число. При этом задав условие,
-//     что если число делится на сто нацело, то третьего числа нет.
+//  double dist = fd(xA, yA, zA, xB, yB, zB);
+//  Console.WriteLine($"Ваша дистанция = {dist}");
