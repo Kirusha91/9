@@ -1,67 +1,99 @@
-﻿// Задача 25: Напишите цикл, который принимает на вход два числа 
-// (A и B) и возводит число A в натуральную степень B.
+﻿// Задача 34: Задайте массив заполненный случайными
+//  положительными трёхзначными числами. Напишите программу,
+//   которая покажет количество чётных чисел в массиве.
 
-// 3, 5 -> 243 (3⁵)
+// [345, 897, 568, 234] -> 2
 
-// 2, 4 -> 16
-
-//   Console.Write("Введите число A: ");
-//   int numA = Convert.ToInt32(Console.ReadLine());
-//   Console.Write("Введите число B: ");
-//   int numB = Convert.ToInt32(Console.ReadLine());
-
-//   int exp = met(numA, numB);
-//   Console.WriteLine($"Ответ:   {exp}");
+// int[] num = new int[15];
 
 
-
-// int met(int numA, int numB){
-
-//   int res = 1;
-
-//   for(int i=1; i <= numB; i++){
-
-//     res = res * numA;
-
+// void Array(int[] array, int min, int max){
+//   for (int i = 0; i<array.Length; i++ ){
+//     array[i] = new Random().Next(min, max);
 //   }
+// }
 
-//     return res;
+
+// void WrArray(int[] array){
+//     for (int i = 0; i<array.Length; i++ ){
+//     Console.Write(array[i] + " ");
+//   }
+//   Console.WriteLine();
 // }
 
 
 
-// Задача 27: Напишите программу, которая принимает на вход число и
-//  выдаёт сумму цифр в числе.
+// int kol(int[] array){
+//     int kolich = 0;
+//     for (int i = 0; i<array.Length; i++ ){
+//     if (array[i] % 2 == 0)
+//     {
+//       kolich++;
+//     }
+//   }
+//   return kolich;
+// }
 
-// 452 -> 11
 
-// 82 -> 10
 
-// 9012 -> 12
+// Array(num, 100, 1000);
+// WrArray(num);
+// Console.WriteLine();
 
-Console.Write("Введите число: ");
-int num = Convert.ToInt32(Console.ReadLine());
 
-  int Sum(int num){
-    
-    // int count = 0;
-    int a = 0;
-    int res = 0;
+// int kolich = kol(num);
+// Console.WriteLine($"Количество чётных чисел в массиве: {kolich}");
 
-    for (int count = 0; count <= num; count++){
-      a = num - num % 10;
-      res = res + (num - a);
-      num = num / 10;
+// Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
+
+// [3, 7, 23, 12] -> 19
+
+// [-4, -6, 89, 6] -> 0
+
+
+int[] CreateRandomArray(int size, int minVal, int maxVal){ 
+
+    int[] array = new int[size];
+
+    for(int i =0; i < size; i++)
+        array[i] = new Random().Next(minVal, maxVal +1);
+
+    return array;
+}
+
+void ShowArray(int[] array){
+
+    for(int i = 0; i < array.Length; i++)
+    {
+        Console.Write(array[i] + " ");
     }
-   return res;
-  }
+    Console.WriteLine();
+}
 
-int sum = Sum(num);
-Console.WriteLine("Сумма цифр в числе: " + sum);
+int GetSumNechet(int[] array){
 
+    int sum = 0;
 
+    for(int i =0; i < array.Length; i++)
+        if(array[i] % 2 == 1)
+            sum +=array[i];
 
+    return sum; 
+    
+}
 
+Console.Write("Введите количество элементов массива: ");
+int length = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите минимальный элемент массива: ");
+int min = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите максимальный элемент массива: ");
+int max = Convert.ToInt32(Console.ReadLine());
+
+int[] myArray = CreateRandomArray(length, min, max);
+ShowArray(myArray);
+
+int res = GetSumNechet(myArray);
+Console.WriteLine("Сумма нечетных элементов " + res);
 
 
 
