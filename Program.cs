@@ -1,99 +1,34 @@
-﻿// Задача 34: Задайте массив заполненный случайными
-//  положительными трёхзначными числами. Напишите программу,
-//   которая покажет количество чётных чисел в массиве.
+﻿// Задача 41: Пользователь вводит с клавиатуры M чисел.
+//  Посчитайте, сколько чисел больше 0 ввёл пользователь.
 
-// [345, 897, 568, 234] -> 2
+// 0, 7, 8, -2, -2 -> 2
 
-// int[] num = new int[15];
-
-
-// void Array(int[] array, int min, int max){
-//   for (int i = 0; i<array.Length; i++ ){
-//     array[i] = new Random().Next(min, max);
-//   }
-// }
+// 1, -7, 567, 89, 223-> 3
 
 
-// void WrArray(int[] array){
-//     for (int i = 0; i<array.Length; i++ ){
-//     Console.Write(array[i] + " ");
-//   }
-//   Console.WriteLine();
-// }
+Console.Write($"Введите количество чисел: ");
+int n = Convert.ToInt32(Console.ReadLine());
+int[] array = new int[n];
 
-
-
-// int kol(int[] array){
-//     int kolich = 0;
-//     for (int i = 0; i<array.Length; i++ ){
-//     if (array[i] % 2 == 0)
-//     {
-//       kolich++;
-//     }
-//   }
-//   return kolich;
-// }
-
-
-
-// Array(num, 100, 1000);
-// WrArray(num);
-// Console.WriteLine();
-
-
-// int kolich = kol(num);
-// Console.WriteLine($"Количество чётных чисел в массиве: {kolich}");
-
-// Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
-
-// [3, 7, 23, 12] -> 19
-
-// [-4, -6, 89, 6] -> 0
-
-
-int[] CreateRandomArray(int size, int minVal, int maxVal){ 
-
-    int[] array = new int[size];
-
-    for(int i =0; i < size; i++)
-        array[i] = new Random().Next(minVal, maxVal +1);
-
-    return array;
+void Numbers(int n){
+for (int i = 0; i < n; i++)
+  {
+    Console.Write($"Введите {i+1} число: ");
+    array[i] = Convert.ToInt32(Console.ReadLine());
+  }
 }
 
-void ShowArray(int[] array){
 
-    for(int i = 0; i < array.Length; i++)
-    {
-        Console.Write(array[i] + " ");
-    }
-    Console.WriteLine();
+int srav(int[] array)
+{
+  int count = 0;
+  for (int i = 0; i < array.Length; i++)
+  {
+    if(array[i] > 0 ) count += 1; 
+  }
+  return count;
 }
 
-int GetSumNechet(int[] array){
+Numbers(n);
 
-    int sum = 0;
-
-    for(int i =0; i < array.Length; i++)
-        if(array[i] % 2 == 1)
-            sum +=array[i];
-
-    return sum; 
-    
-}
-
-Console.Write("Введите количество элементов массива: ");
-int length = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите минимальный элемент массива: ");
-int min = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите максимальный элемент массива: ");
-int max = Convert.ToInt32(Console.ReadLine());
-
-int[] myArray = CreateRandomArray(length, min, max);
-ShowArray(myArray);
-
-int res = GetSumNechet(myArray);
-Console.WriteLine("Сумма нечетных элементов " + res);
-
-
-
+Console.WriteLine($"Введено чисел больше 0: {srav(array)} ");
