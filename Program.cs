@@ -1,34 +1,51 @@
-﻿// Задача 41: Пользователь вводит с клавиатуры M чисел.
-//  Посчитайте, сколько чисел больше 0 ввёл пользователь.
+﻿// Задача 47. Задайте двумерный массив размером m×n, заполненный 
+// случайными вещественными числами.
 
-// 0, 7, 8, -2, -2 -> 2
+// m = 3, n = 4.
 
-// 1, -7, 567, 89, 223-> 3
+// 0,5 7 -2 -0,2
 
+// 1 -3,3 8 -9,9
 
-Console.Write($"Введите количество чисел: ");
+// 8 7,8 -7,1 9
+
+Console.Write("Введите m: ");
+int m = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите n: ");
 int n = Convert.ToInt32(Console.ReadLine());
-int[] array = new int[n];
 
-void Numbers(int n){
-for (int i = 0; i < n; i++)
-  {
-    Console.Write($"Введите {i+1} число: ");
-    array[i] = Convert.ToInt32(Console.ReadLine());
-  }
-}
+Console.Clear();
+Console.WriteLine($"m = {m}, n = {n}.");
 
+double[,] array = new double[m, n];
 
-int srav(int[] array)
+CreateArrayDouble(array);
+
+WriteArray(array);
+
+Console.WriteLine();
+
+void CreateArrayDouble(double[,] array)
 {
-  int count = 0;
-  for (int i = 0; i < array.Length; i++)
+  for (int i = 0; i < m; i++)
   {
-    if(array[i] > 0 ) count += 1; 
+    for (int j = 0; j < n; j++)
+    {
+      array[i, j] = new Random().NextDouble() * 100 - 50;
+    }
   }
-  return count;
 }
 
-Numbers(n);
+void WriteArray (double[,] array){
+for (int i = 0; i < m; i++)
+  {
+      for (int j = 0; j < n; j++)
+      {
+        double alignNumber = Math.Round(array[i, j], 1);
+        Console.Write(alignNumber + " ");
+      }
+      Console.WriteLine();
+  }
+}
 
-Console.WriteLine($"Введено чисел больше 0: {srav(array)} ");
+
