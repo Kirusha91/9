@@ -1,152 +1,53 @@
-﻿// Задача 54: Задайте двумерный массив. Напишите программу, которая 
-// упорядочит по убыванию элементы каждой строки двумерного массива.
-// Например, задан массив:
-// 1 4 7 2
-// 5 9 2 3
-// 8 4 2 4
-// В итоге получается вот такой массив:
-// 7 4 2 1
-// 9 5 3 2
-// 8 4 4 2
+﻿// Задача 64: Задайте значение N. Напишите программу, которая 
+// выведет все натуральные числа в промежутке от N до 1.
+//  Выполнить с помощью рекурсии.
+
+// N = 5 -> "5, 4, 3, 2, 1"
+// N = 8 -> "8, 7, 6, 5, 4, 3, 2, 1"
+
+// void ShowNums(int num){
+    
+//     if(1 > num ) ShowNums(num + 1);
+//     Console.Write(num + " ");
+// }
+
+// Console.Write("Введите число: ");
+// int n = Convert.ToInt32(Console.ReadLine());
+
+// ShowNums(n);
+
+// Задача 66: Задайте значения M и N. Напишите программу, 
+// которая найдёт сумму натуральных элементов в промежутке от M до N.
+
+// M = 1; N = 15 -> 120
+// M = 4; N = 8. -> 30
 
 // int m = InputNumbers("Введите m: ");
 // int n = InputNumbers("Введите n: ");
-// int range = InputNumbers("Введите диапазон: от 1 до ");
+// int temp = m;
 
-// int[,] array = new int[m, n];
-// CreateArray(array);
-// WriteArray(array);
-
-// Console.WriteLine($"\nОтсортированный массив: ");
-// OrderArrayLines(array);
-// WriteArray(array);
-
-// void OrderArrayLines(int[,] array)
+// if (m > n) 
 // {
-//   for (int i = 0; i < array.GetLength(0); i++)
-//   {
-//     for (int j = 0; j < array.GetLength(1); j++)
-//     {
-//       for (int k = 0; k < array.GetLength(1) - 1; k++)
-//       {
-//         if (array[i, k] < array[i, k + 1])
-//         {
-//           int temp = array[i, k + 1];
-//           array[i, k + 1] = array[i, k];
-//           array[i, k] = temp;
-//         }
-//       }
-//     }
-//   }
+//   m = n; 
+//   n = temp;
 // }
 
-// int InputNumbers(string input)
+// PrintSumm(m, n, temp=0);
+
+// void PrintSumm(int m, int n, int summ)
+// {
+//   summ = summ + n;
+//   if (n <= m)
+//   {
+//     Console.Write($"Сумма элементов= {summ} ");
+//     return;
+//   }
+//   PrintSumm(m, n - 1, summ);
+// }
+
+// int InputNumbers(string input) 
 // {
 //   Console.Write(input);
 //   int output = Convert.ToInt32(Console.ReadLine());
 //   return output;
 // }
-
-// void CreateArray(int[,] array)
-// {
-//   for (int i = 0; i < array.GetLength(0); i++)
-//   {
-//     for (int j = 0; j < array.GetLength(1); j++)
-//     {
-//       array[i, j] = new Random().Next(range);
-//     }
-//   }
-// }
-
-// void WriteArray(int[,] array)
-// {
-//   for (int i = 0; i < array.GetLength(0); i++)
-//   {
-//     for (int j = 0; j < array.GetLength(1); j++)
-//     {
-//       Console.Write(array[i, j] + " ");
-//     }
-//     Console.WriteLine();
-//   }
-// }
-
-
-// Задача 56: Задайте прямоугольный двумерный массив. Напишите 
-// программу, которая будет находить строку с наименьшей суммой элементов.
-
-// Например, задан массив:
-
-// 1 4 7 2
-
-// 5 9 2 3
-
-// 8 4 2 4
-
-// 5 2 6 7
-
-// Программа считает сумму элементов в каждой строке
-//  и выдаёт номер строки с наименьшей суммой элементов: 1 строка
-
-
-int m = InputNumbers("Введите m: ");
-int n = InputNumbers("Введите n: ");
-int range = InputNumbers("Введите диапазон: от 1 до ");
-
-int[,] array = new int[m, n];
-CreateArray(array);
-WriteArray(array);
-
-int minSumLine = 0;
-int sumLine = SumLineElements(array, 0);
-for (int i = 1; i < array.GetLength(0); i++)
-{
-  int tempSumLine = SumLineElements(array, i);
-  if (sumLine > tempSumLine)
-  {
-    sumLine = tempSumLine;
-    minSumLine = i;
-  }
-}
-
-Console.WriteLine($"\n{minSumLine+1} - строкa с наименьшей суммой ({sumLine}) ");
-
-
-int SumLineElements(int[,] array, int i)
-{
-  int sumLine = array[i,0];
-  for (int j = 1; j < array.GetLength(1); j++)
-  {
-    sumLine += array[i,j];
-  }
-  return sumLine;
-}
-
-int InputNumbers(string input)
-{
-  Console.Write(input);
-  int output = Convert.ToInt32(Console.ReadLine());
-  return output;
-}
-
-void CreateArray(int[,] array)
-{
-  for (int i = 0; i < array.GetLength(0); i++)
-  {
-    for (int j = 0; j < array.GetLength(1); j++)
-    {
-      array[i, j] = new Random().Next(range);
-    }
-  }
-}
-
-void WriteArray (int[,] array)
-{
-  for (int i = 0; i < array.GetLength(0); i++)
-  {
-    for (int j = 0; j < array.GetLength(1); j++)
-    {
-      Console.Write(array[i,j] + " ");
-    }
-    Console.WriteLine();
-  }
-}
